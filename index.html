@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="index.css" />
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+    <title>Responsive Navbar</title>
+  </head>
+
+  <body>
+    <header class="primary-header flex">
+      <div class="logo">
+        <i class="uil uil-brightness"></i>
+        <!-- <img src="" alt="img" class="logo" /> -->
+      </div>
+      
+      <button class="mobile-nav-toggle" aria-controls="primary-navigation" aria-expanded="false">
+        <i class="uil uil-bars"></i>
+        <!-- <span class="sr-only">Menu</span> -->
+      </button>
+
+      <nav>
+        <ul id="primary-navigation" data-visible="false" class="primary-navigation flex">
+          <li class="active">
+            <a href="#"> <span aria-hidden="true">00</span>Home </a>
+          </li>
+
+          <li>
+            <a href="#"> <span aria-hidden="true">01</span>Destination </a>
+          </li>
+
+          <li>
+            <a href="#"> <span aria-hidden="true">02</span>Crew </a>
+          </li>
+
+          <li>
+            <a href="#"> <span aria-hidden="true">03</span>Technology </a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <script src="nav.js"></script>
+  </body>
+</html>

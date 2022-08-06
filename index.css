@@ -1,0 +1,107 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300;400;500;600;700&display=swap');
+
+body {
+  margin: 0 0;
+  background-image: url('https://parispeaceforum.org/wp-content/uploads/2021/10/NET-ZERO-SPACE-INITIATIVE-1.png');
+  color: white;
+  font-family: 'Roboto Mono', monospace;
+  font-weight: 500;
+  line-height: 1.5;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+.logo {
+  margin-left: 1.5rem;
+  font-size: xxx-large;
+}
+
+.primary-header {
+  align-items: center;
+  justify-content: space-between;
+}
+
+.mobile-nav-toggle {
+  display: none;
+}
+
+.primary-navigation {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+
+  background: hsl(0 0% 0% / 0.5);
+}
+@supports (backdrop-filter: blur(1rem)) { /* si el browser q usamos soporta (etc:etc) se apican los sig estilos. sino usa los otros definidos */
+  .primary-navigation {
+    background: hsl(0 0% 100% / 0.1);
+    backdrop-filter: blur(1rem);  
+  }
+}
+
+.primary-navigation a {
+  text-decoration: none;
+  color: inherit;
+}
+.primary-navigation a:hover,
+.primary-navigation a:focus{
+  padding-bottom: 4px;
+  border-bottom: 2px solid white;
+}
+
+.primary-navigation a > span {
+  font-weight: 700;
+  margin-inline-end: .75rem;
+}
+
+@media (max-width: 35em) {
+  .primary-navigation {
+    gap: 2em;
+
+    position: fixed;
+    z-index: 1000;
+    inset: 0 0 0 10%;
+
+    flex-direction: column;
+    padding: min(30vh, 10rem) 2rem;
+
+    transform: translateX(100%); /* con esto 'escondo' mi menú a la derecha */
+    transition: 0.35s ease-out;
+  }
+
+  .primary-navigation[data-visible="true"] {
+    transform: translateX(0%); /* luego con esto, cuando q el menú sea visible, lo regreso a donde debe ir */
+  }
+
+  .mobile-nav-toggle {
+    display: block;
+    color: white;
+    font-size: xx-large;
+    position: absolute;
+    z-index: 9999;
+    background: transparent;
+    border: 0;
+    aspect-ratio: 1;
+    right: 2rem;
+    cursor: pointer;
+  }
+}
+
+@media (min-width: 35em) and (max-width: 55em){
+  .primary-navigation a > span[aria-hidden='true'] {
+    display: none;
+  }
+}
+
+@media (min-width: 35em){
+  .primary-navigation{
+    gap: clamp(1.5rem, 5vw, 3rem);;
+    padding-block: 2rem;
+    padding-inline: clamp(3rem, 10vw, 10rem); /* no crece menos de esto, quiero q crezca esto, no crece más q esto */
+  }
+}
+
+.flex {
+  display: flex;
+  gap: clamp(1.5rem, 5vw, 3rem);
+}
